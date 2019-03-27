@@ -43,7 +43,7 @@ public class RoadPool : ObjectPoolInScene<Road>
                 road.Show();
                 if (indexRowRoad > 10) { 
                     playerPool.SpawnPlayerChild(Vector3.forward * (last.transform.position.z + _distance) + Vector3.right * num + Vector3.up *2);
-                    Debug.Log(playerPool.ListInGame.Count);
+                   
                 }
             }
             road.transform.position = Vector3.forward*(last.transform.position.z + _distance) + Vector3.right*num;

@@ -7,7 +7,11 @@ public class PlayerPool : ObjectPoolInScene<PlayerChild>
 
     [SerializeField] private int percentSpawnPlayer = 20;
 	// Use this for initialization
-    
+
+    public override void Start()
+    {
+
+    }
 
     public override void CheckPool()
     {

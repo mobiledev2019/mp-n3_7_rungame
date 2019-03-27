@@ -17,11 +17,13 @@ public class PlayerChild : MonoBehaviour {
                 transform.DOMove(other.transform.position, 1);
                 transform.SetParent(null);
                 other.gameObject.SetActive(false);
-                PlayerController.Instance.RemovePlayer();
+                PlayerController.Instance.RemovePlayer(this);
                 setDie();
             }
         }
     }
+
+
     
     private void Used() {
         status = statusPlayer.Used;
