@@ -18,8 +18,9 @@ public class CameraController : MonoBehaviour {
     }   
 
     private void LateUpdate() { 
-            vectorFollow.z = (Player.position + offset).z;
-            transform.position = vectorFollow; 
+        vectorFollow.z = (Player.position + offset).z;
+        vectorFollow.y = (Player.position + offset).y;
+        transform.position = Vector3.Lerp(transform.position, vectorFollow , 0.05f) ; 
     } 
 
 

@@ -325,6 +325,10 @@
     <Compile Include="Assets\ThirdParty\Demigiant\DOTweenPro\Editor\DOTweenAnimationInspector.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\KUBIKOS - Cube Mini Animals\Animals1_Shaders\Unlit-DoubleSided.shader" />
+    <None Include="Assets\KUBIKOS - World\Shaders\Cloud_Shader.shader" />
+    <None Include="Assets\KUBIKOS - World\Shaders\CustomStandardSpecular.shader" />
+    <None Include="Assets\KUBIKOS - World\Shaders\Surface_Shader.shader" />
     <None Include="Assets\ThirdParty\Demigiant\DOTween\DOTween.XML" />
     <None Include="Assets\ThirdParty\Demigiant\DOTween\DOTween43.xml" />
     <None Include="Assets\ThirdParty\Demigiant\DOTween\DOTween46.xml" />

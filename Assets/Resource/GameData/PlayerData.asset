@@ -1,0 +1,94 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e725f6e38aad7e4cb445474bf6156aa, type: 3}
+  m_Name: PlayerData
+  m_EditorClassIdentifier: 
+  PlayDesigns:
+  - name: Normal
+    type: 0
+    id: 0
+    avatar: {fileID: 1042753228856018, guid: 638583a177564da19f00393d12d53375, type: 2}
+    scriptSkill: normal player
+  - name: 
+    type: 0
+    id: 0
+    avatar: {fileID: 1795941953813262, guid: b8c53b8156d345fda2ba96b7855e2178, type: 2}
+    scriptSkill: 
+  - name: 
+    type: 2
+    id: 0
+    avatar: {fileID: 1458080912806766, guid: 1f7d832dd4d847fe9e6177ba21bcaf64, type: 2}
+    scriptSkill: 
+  - name: 
+    type: 0
+    id: 0
+    avatar: {fileID: 1572907694970512, guid: 222a9957848349d596dea861db7f8c0c, type: 2}
+    scriptSkill: 
+  - name: 
+    type: 0
+    id: 0
+    avatar: {fileID: 1131385415324142, guid: 398894842e7343b8812bd64f5f04681e, type: 2}
+    scriptSkill: 
+  - name: 
+    type: 0
+    id: 0
+    avatar: {fileID: 1464386534553952, guid: 8d50d2dff98648b3ac395f6eb2dd207e, type: 2}
+    scriptSkill: 
+  - name: 
+    type: 0
+    id: 0
+    avatar: {fileID: 1748003504462306, guid: 1a3bc5505a4b4238a4bcdb7ada5b2db6, type: 2}
+    scriptSkill: 
+  - name: 
+    type: 0
+    id: 0
+    avatar: {fileID: 1457399783220848, guid: db337cd6af3d4e7c8c9e6cc979897853, type: 2}
+    scriptSkill: 
+  - name: 
+    type: 0
+    id: 0
+    avatar: {fileID: 1123422977510952, guid: 3e357f3fccba4a12954ca0d5f4967271, type: 2}
+    scriptSkill: 
+  - name: 
+    type: 0
+    id: 0
+    avatar: {fileID: 1505308878844450, guid: 577ee038b0c54281b2ac3d81a356110a, type: 2}
+    scriptSkill: 
+  - name: 
+    type: 0
+    id: 0
+    avatar: {fileID: 1798410034550930, guid: 51c0ca09eaee4e8f9789350a7056e358, type: 2}
+    scriptSkill: 
+  - name: 
+    type: 1
+    id: 0
+    avatar: {fileID: 1155489785018666, guid: 97245c9de92b4b4c918d02c7d88f30d8, type: 2}
+    scriptSkill: 
+  - name: 
+    type: 0
+    id: 0
+    avatar: {fileID: 1227282385372154, guid: 38cbdebe8333489caa55068911a94aa2, type: 2}
+    scriptSkill: 
+  - name: 
+    type: 3
+    id: 0
+    avatar: {fileID: 1079714181109206, guid: 3bfa1903a43b4fbc99884c26e254db8a, type: 2}
+    scriptSkill: 
+  - name: 
+    type: 0
+    id: 0
+    avatar: {fileID: 1067654494659306, guid: f5a01bb59796475ba491586bbe3271fd, type: 2}
+    scriptSkill: 
+  - name: 
+    type: 0
+    id: 0
+    avatar: {fileID: 1726858551697574, guid: 19b41bdeaeb44a4ab95b65d5b5f38b96, type: 2}
+    scriptSkill: 

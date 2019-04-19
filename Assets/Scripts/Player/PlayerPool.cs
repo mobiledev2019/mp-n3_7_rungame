@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerPool : ObjectPoolInScene<PlayerChild>
+public class PlayerPool : ObjectPoolInScene<PlayerChildController>
 {
 
     [SerializeField] private int percentSpawnPlayer = 20;
@@ -30,8 +30,8 @@ public class PlayerPool : ObjectPoolInScene<PlayerChild>
         if (randomShow()) {
             Debug.Log("ObjectPool");
             base.SpawnObject();
-            PlayerChild playerTemp = ListInGame[ListInGame.Count - 1];
-            playerTemp.Init();
+            PlayerChildController playerTemp = ListInGame[ListInGame.Count - 1];
+            playerTemp.Init(PlayerService.Instance.getPlayer());
             playerTemp.transform.position = position;
         }
     }

@@ -11,17 +11,17 @@ public class ObjectPoolInScene<T> : MonoBehaviour where T : MonoBehaviour {
     public float LimitFirst;
     public float LimitLast;
 
-    public static T Instance {
-        get {
-            if (instance == null) {
-                instance = GameObject.FindObjectOfType<T>();
-                if (instance == null) instance = new GameObject("Singleton", typeof(T)).GetComponent<T>();
-            }
-
-            return instance;
-        }
-        set { instance = value; }
-    }
+//    public static T Instance {
+//        get {
+//            if (instance == null) {
+//                instance = GameObject.FindObjectOfType<T>();
+//                if (instance == null) instance = new GameObject("Singleton", typeof(T)).GetComponent<T>();
+//            }
+//
+//            return instance;
+//        }
+//        set { instance = value; }
+//    }
 
     public virtual void Start() {
         Init();
@@ -52,8 +52,10 @@ public class ObjectPoolInScene<T> : MonoBehaviour where T : MonoBehaviour {
 
     public void RecycleObject() {
         T first = ListInGame[0];
+        first.Recycle(); 
+  
         ListInGame.RemoveAt(0);
-        first.Recycle();
+
     }
 
     public  bool IsOutOfCamera(T first) {

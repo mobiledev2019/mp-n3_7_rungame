@@ -5,15 +5,12 @@ using DG.Tweening;
 using UnityEngine;
 
 public class PlayerChild : MonoBehaviour {
-    
+
     [SerializeField] private statusPlayer status;
-    
-    
+
     private void OnTriggerEnter(Collider other) {
         if (IsUsed()) {
-            if (other.gameObject.CompareTag("roadDie"))
-            {
-                Vector3 pos = other.transform.position;
+            if (other.gameObject.CompareTag("roadDie")) {
                 transform.DOMove(other.transform.position, 1);
                 transform.SetParent(null);
                 other.gameObject.SetActive(false);
@@ -23,18 +20,21 @@ public class PlayerChild : MonoBehaviour {
         }
     }
 
+    public void Death() {
+        transform.SetParent(null);
+        setDie();
+        gameObject.SetActive(false);
+    }
 
-    
+
     private void Used() {
         status = statusPlayer.Used;
     }
 
-    public void Init()
-    {
+    public void Init() {
         status = statusPlayer.Empty;
     }
-    public bool IsUsed()
-    {
+    public bool IsUsed() {
         if (status.Equals(statusPlayer.Used)) {
             return true;
         } else {
@@ -42,20 +42,15 @@ public class PlayerChild : MonoBehaviour {
         }
     }
 
-    public bool IsDie()
-    {
-        if (status.Equals(statusPlayer.Die))
-        {
+    public bool IsDie() {
+        if (status.Equals(statusPlayer.Die)) {
             return true;
-        }
-        else
-        {
+        } else {
             return false;
         }
     }
 
-    public bool NotUse()
-    {
+    public bool NotUse() {
         if (status.Equals(statusPlayer.Empty)) {
             return true;
         } else {
@@ -63,13 +58,11 @@ public class PlayerChild : MonoBehaviour {
         }
     }
 
-    public void setUsed()
-    {
+    public void setUsed() {
         status = statusPlayer.Used;
     }
 
-    public void setDie()
-    {
+    public void setDie() {
         status = statusPlayer.Die;
     }
 }

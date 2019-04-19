@@ -7,6 +7,9 @@ TagManager:
   - roadDie
   - playerController
   - playerChild
+  - road
+  - roadCheckLevel
+  - Boom
   layers:
   - Default
   - TransparentFX
