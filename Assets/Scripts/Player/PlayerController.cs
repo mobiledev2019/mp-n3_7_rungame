@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour {
 
     private int levelPlayer = 0;
     public bool IsAlive;
+    private int timeItemSpeed = 0;
 
     private void Awake() {
         if (Instance == null) {
@@ -28,11 +29,24 @@ public class PlayerController : MonoBehaviour {
     // Update is called once per frame
     private void Update() {
         Move();
+        TimeSpeedItem();
     }
 
     private void Move() {
         transform.position += Vector3.forward * speed * Time.deltaTime;
+       
+    }
 
+    private void TimeSpeedItem()
+    {
+        if (timeItemSpeed > 0)
+        {
+            timeItemSpeed--;
+            if (timeItemSpeed == 0)
+            {
+                speed = 6;
+            }
+        } 
     }
 
     private void Stop() {
@@ -59,16 +73,24 @@ public class PlayerController : MonoBehaviour {
                     updatePlayer(_player);
                 }
             }
+
             if (orther.gameObject.CompareTag("roadCheckLevel")) { 
                 if (GameService.Instance.getLevelRoad() > levelPlayer) { 
                     SetPositionLevelUp(); 
                 }
             }
+
             if (orther.gameObject.CompareTag("Boom")) {
                 Players[Players.Count - 1].Death();
                 RemovePlayerByIndex(Players.Count - 1);
                 orther.gameObject.SetActive(false);
                 UpPlayerChil(-1);
+            }
+
+            if (orther.gameObject.CompareTag("ItemSpeed"))
+            {
+                speed = 10;
+                timeItemSpeed = 20;
             }
         }
        

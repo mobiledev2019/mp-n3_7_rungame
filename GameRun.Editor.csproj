@@ -329,6 +329,7 @@
     <None Include="Assets\KUBIKOS - World\Shaders\Cloud_Shader.shader" />
     <None Include="Assets\KUBIKOS - World\Shaders\CustomStandardSpecular.shader" />
     <None Include="Assets\KUBIKOS - World\Shaders\Surface_Shader.shader" />
+    <None Include="Assets\Textures\UISprite\Font\Maven_Pro\OFL.txt" />
     <None Include="Assets\ThirdParty\Demigiant\DOTween\DOTween.XML" />
     <None Include="Assets\ThirdParty\Demigiant\DOTween\DOTween43.xml" />
     <None Include="Assets\ThirdParty\Demigiant\DOTween\DOTween46.xml" />

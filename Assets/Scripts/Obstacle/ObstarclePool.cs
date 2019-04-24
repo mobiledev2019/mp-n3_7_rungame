@@ -18,27 +18,31 @@ public class ObstarclePool : ObjectPoolInScene<ObstacleBase> {
 
     }
 
-    public void SpanwnObstarcle(Vector3 position) {
+    public bool SpanwnObstarcle(Vector3 position) {
         if (randomShow()) {
             Debug.Log("ObjectPool");
+            
             base.SpawnObject();
             ObstacleBase obs = ListInGame[ListInGame.Count - 1];
             obs.Init();
             obs.transform.position = position;
-        }
-    }
-
-    public bool randomShow() {
-        int ran = Random.Range(1, 110);
-        if (ran < prefabs.PercentShow) {
             return true;
         }
 
         return false;
     }
 
-    private int ManagerObstarcle()
+    public bool randomShow() {
+        int ran = Random.Range(1, 110);
+        if (ran < prefabs.PercentShow) {
+            prefabs = ChooseObstacle();
+            return true;
+        }
+        return false;
+    }
+
+    private ObstacleBase ChooseObstacle()
     {
-        return 1;
+        return ObstacleService.Instance.getObstacleData();
     }
 }

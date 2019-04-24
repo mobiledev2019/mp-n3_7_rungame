@@ -253,13 +253,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Coins\Coins.cs" />
+    <Compile Include="Assets\Scripts\Coins\CoinsPool.cs" />
     <Compile Include="Assets\Scripts\GameScript\CameraController.cs" />
     <Compile Include="Assets\Scripts\GameScript\GameService.cs" />
     <Compile Include="Assets\Scripts\GameScript\GameSetting.cs" />
     <Compile Include="Assets\Scripts\GameScript\MoveController.cs" />
     <Compile Include="Assets\Scripts\GameScript\ObjectPool.cs" />
     <Compile Include="Assets\Scripts\GameScript\ObjectPoolInScene.cs" />
+    <Compile Include="Assets\Scripts\GameScript\TimeController.cs" />
+    <Compile Include="Assets\Scripts\Item\ItemBase.cs" />
+    <Compile Include="Assets\Scripts\Item\ItemClock.cs" />
+    <Compile Include="Assets\Scripts\Item\ItemData.cs" />
+    <Compile Include="Assets\Scripts\Item\ItemPool.cs" />
+    <Compile Include="Assets\Scripts\Item\ItemService.cs" />
     <Compile Include="Assets\Scripts\Obstacle\ObstacleBase.cs" />
+    <Compile Include="Assets\Scripts\Obstacle\ObstacleData.cs" />
     <Compile Include="Assets\Scripts\Obstacle\ObstacleMove.cs" />
     <Compile Include="Assets\Scripts\Obstacle\ObstacleRotation.cs" />
     <Compile Include="Assets\Scripts\Obstacle\ObstacleService.cs" />
@@ -282,6 +291,7 @@
     <None Include="Assets\KUBIKOS - World\Shaders\Cloud_Shader.shader" />
     <None Include="Assets\KUBIKOS - World\Shaders\CustomStandardSpecular.shader" />
     <None Include="Assets\KUBIKOS - World\Shaders\Surface_Shader.shader" />
+    <None Include="Assets\Textures\UISprite\Font\Maven_Pro\OFL.txt" />
     <None Include="Assets\ThirdParty\Demigiant\DOTween\DOTween.XML" />
     <None Include="Assets\ThirdParty\Demigiant\DOTween\DOTween43.xml" />
     <None Include="Assets\ThirdParty\Demigiant\DOTween\DOTween46.xml" />

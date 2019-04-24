@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class RoadPool : ObjectPoolInScene<Road>
 {
@@ -9,6 +11,8 @@ public class RoadPool : ObjectPoolInScene<Road>
     [SerializeField] private float percentHideRoad= 50;
     [SerializeField] private PlayerPool playerPool;
     [SerializeField] private ObstarclePool obstaclePool;
+    [SerializeField] private CoinsPool coinsPool;
+    [SerializeField] private ItemPool itemPool;
 
     private int indexRowRoad = 0;
     private int levelRoad = 0;
@@ -27,6 +31,9 @@ public class RoadPool : ObjectPoolInScene<Road>
         CheckPool();
         playerPool.CheckPool();
         obstaclePool.CheckPool();
+        itemPool.CheckPool();
+        coinsPool.CheckPool();
+
     }
 
     public override void SpawnObject(Road last)
@@ -35,6 +42,7 @@ public class RoadPool : ObjectPoolInScene<Road>
         float num = -1* _distance *(int)( _numRoadInRow / 2 );
         bool random;
         Vector3 vtPos;
+        Boolean isObs = false;
         for (int index = 0; index < _numRoadInRow; index++)
         {
             random = randomShow();
@@ -48,19 +56,26 @@ public class RoadPool : ObjectPoolInScene<Road>
                 road.Hide();
             }
             else
-            {
+            { 
                 road.Show();
                 if (indexRowRoad > 5)
                 {
                     vtPos = Vector3.forward * (last.transform.position.z + _distance) + Vector3.right * num +
                              Vector3.up * (2 + GameService.Instance.getLevelRoad());
                     playerPool.SpawnPlayerChild(vtPos);
-                    obstaclePool.SpanwnObstarcle(vtPos + Vector3.up*1);
+                    isObs = obstaclePool.SpanwnObstarcle(vtPos + Vector3.up*1);
                 }
             }
             road.transform.position = Vector3.forward*(last.transform.position.z + _distance) + Vector3.right*num + Vector3.up* GameService.Instance.getLevelRoad();
+            if (!isObs)
+            {
+                if (!itemPool.SpanwnItem(road.transform.position + Vector3.up))
+                {
+                    coinsPool.SpanwnCoins(road.transform.position + Vector3.up);
+                }
+            }
         }
-
+        
         tempUpLevel++;
         if (tempUpLevel == distanceUpLevel)
         {
