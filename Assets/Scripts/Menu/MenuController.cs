@@ -9,19 +9,38 @@ public class MenuController : MonoBehaviour {
     [Header("UI")]
     public Button btnAddCoin;
     public Button btnPlay, btnShop, btnSetting, btnRate, 
-        btnRank, btnShare, btnExitPopup, btnSound, btnMusic, btnNoAD;
+        btnRank, btnShare, btnExitPopup, btnSound, btnMusic, btnNoAD, btnLevel;
     public GameObject popUpSetting;
     public Text textCoin;
+    public GameObject panelLevel, panelMenu;
 
     [Header("Sprite")]
     public Sprite music;
     public Sprite musicP, noMusic, noMusicP, sound, soundP, noSound, noSoundP;
 
 
+    private void Awake()
+    {
+        MakeInstance();
+    }
+
     private void Start()
     {
         Init();
         InitStateButton();
+    }
+
+    void MakeInstance()
+    {
+        if (instance != null)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
     }
 
     public void Init()
@@ -38,7 +57,7 @@ public class MenuController : MonoBehaviour {
         btnMusic.onClick.AddListener(OnClickMusic);
         btnNoAD.onClick.AddListener(OnClickNoAD);
         btnSetting.onClick.AddListener(OnClickSetting);
-
+        btnLevel.onClick.AddListener(OnClickLevel);
     }
 
     #region OnClickButton
@@ -114,6 +133,12 @@ public class MenuController : MonoBehaviour {
     void OnClickNoAD()
     {
 
+    }
+
+    void OnClickLevel()
+    {
+        panelLevel.SetActive(true);
+        panelMenu.SetActive(false);
     }
 
     #endregion
