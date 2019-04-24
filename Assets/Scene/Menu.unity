@@ -435,6 +435,46 @@ RectTransform:
   m_PrefabParentObject: {fileID: 224337428856930206, guid: 03535a97a96a55f44ac3a728ff34df35,
     type: 2}
   m_PrefabInternal: {fileID: 103307949}
+--- !u!1 &122958126
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 122958128}
+  - component: {fileID: 122958127}
+  m_Layer: 0
+  m_Name: FBManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &122958127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 122958126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5138c2768c661d640a6f79c5a2769668, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &122958128
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 122958126}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 216.59647, y: 823.75055, z: -13.798709}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &222215501
 GameObject:
   m_ObjectHideFlags: 0

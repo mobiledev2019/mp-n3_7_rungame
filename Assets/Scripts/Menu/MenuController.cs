@@ -94,7 +94,7 @@ public class MenuController : MonoBehaviour {
 
     void OnClickShare()
     {
-
+        FacebookManager.instance.Login();
     }
 
     void OnClickExitPopupSetting()
