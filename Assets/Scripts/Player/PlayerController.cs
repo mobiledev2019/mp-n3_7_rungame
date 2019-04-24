@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour {
             timeItemSpeed--;
             if (timeItemSpeed == 0)
             {
-                speed = 6;
+                speed = 3;
             }
         } 
     }
@@ -89,7 +89,7 @@ public class PlayerController : MonoBehaviour {
 
             if (orther.gameObject.CompareTag("ItemSpeed"))
             {
-                speed = 10;
+                speed = 5;
                 timeItemSpeed = 20;
             }
         }
@@ -125,6 +125,8 @@ public class PlayerController : MonoBehaviour {
 
     private void RemovePlayerByIndex(int index) {
         if (Players.Count >= 1) {
+            Players[Players.Count-1].setDie();
+            Players[Players.Count - 1].gameObject.SetActive(false);
             Players.RemoveAt(index);
             CheckDeath();
         }

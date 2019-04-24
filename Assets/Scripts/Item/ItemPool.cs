@@ -15,7 +15,6 @@ public class ItemPool : ObjectPoolInScene<ItemBase> {
                 RecycleObject();
             }
         }
-
     }
 
     public bool SpanwnItem(Vector3 position) {

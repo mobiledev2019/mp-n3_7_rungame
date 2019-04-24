@@ -322,6 +322,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\LowPolyWaterv2\Editor\LPWInspector.cs" />
+    <Compile Include="Assets\LowPolyWaterv2\Editor\LPWShaderGUI.cs" />
     <Compile Include="Assets\ThirdParty\Demigiant\DOTweenPro\Editor\DOTweenAnimationInspector.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -329,6 +331,18 @@
     <None Include="Assets\KUBIKOS - World\Shaders\Cloud_Shader.shader" />
     <None Include="Assets\KUBIKOS - World\Shaders\CustomStandardSpecular.shader" />
     <None Include="Assets\KUBIKOS - World\Shaders\Surface_Shader.shader" />
+    <None Include="Assets\LowPolyWaterv2\Shaders\LPWCompatibility.cginc" />
+    <None Include="Assets\LowPolyWaterv2\Shaders\LPWLighting.cginc" />
+    <None Include="Assets\LowPolyWaterv2\Shaders\LPWLite.cginc" />
+    <None Include="Assets\LowPolyWaterv2\Shaders\LPWNoise.cginc" />
+    <None Include="Assets\LowPolyWaterv2\Shaders\LPWReflection.cginc" />
+    <None Include="Assets\LowPolyWaterv2\Shaders\LPWRenderDepth.shader" />
+    <None Include="Assets\LowPolyWaterv2\Shaders\LPWRipples.cginc" />
+    <None Include="Assets\LowPolyWaterv2\Shaders\LPWShoreBlend.cginc" />
+    <None Include="Assets\LowPolyWaterv2\Shaders\LPWStandard.cginc" />
+    <None Include="Assets\LowPolyWaterv2\Shaders\LPWWaves.cginc" />
+    <None Include="Assets\LowPolyWaterv2\Shaders\LowPolyWaterAdvanced.shader" />
+    <None Include="Assets\LowPolyWaterv2\Shaders\LowPolyWaterLite.shader" />
     <None Include="Assets\Textures\UISprite\Font\Maven_Pro\OFL.txt" />
     <None Include="Assets\ThirdParty\Demigiant\DOTween\DOTween.XML" />
     <None Include="Assets\ThirdParty\Demigiant\DOTween\DOTween43.xml" />
