@@ -12,6 +12,7 @@ TagManager:
   - Boom
   - Coins
   - ItemSpeed
+  - Stairs
   layers:
   - Default
   - TransparentFX

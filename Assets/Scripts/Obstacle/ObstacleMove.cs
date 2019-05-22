@@ -34,14 +34,14 @@ public class ObstacleMove : ObstacleBase
         transform.position += DirectorMove * speed * Time.deltaTime; 
     }
 
-    private void OnCollisionEnter(Collision orther)
-    {
-        if (orther.gameObject.CompareTag("playerChild")) {
-            PlayerChild _player = orther.gameObject.GetComponent<PlayerChild>();
-            if (_player.NotUse())
-            {
-                IsMove = false;
-            }
-        }
-    } 
+//    private void OnCollisionEnter(Collision orther)
+//    {
+//        if (orther.gameObject.CompareTag("playerChild")) {
+//            PlayerChild _player = orther.gameObject.GetComponent<PlayerChild>();
+//            if (_player.NotUse())
+//            {
+//                IsMove = false;
+//            }
+//        }
+//    } 
 }

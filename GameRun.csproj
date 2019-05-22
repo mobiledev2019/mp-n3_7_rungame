@@ -276,6 +276,7 @@
     <Compile Include="Assets\Scripts\Item\ItemData.cs" />
     <Compile Include="Assets\Scripts\Item\ItemPool.cs" />
     <Compile Include="Assets\Scripts\Item\ItemService.cs" />
+    <Compile Include="Assets\Scripts\Map\MapService.cs" />
     <Compile Include="Assets\Scripts\Obstacle\ObstacleBase.cs" />
     <Compile Include="Assets\Scripts\Obstacle\ObstacleData.cs" />
     <Compile Include="Assets\Scripts\Obstacle\ObstacleMove.cs" />
@@ -293,6 +294,7 @@
     <Compile Include="Assets\Scripts\Road\RoadManager.cs" />
     <Compile Include="Assets\Scripts\Road\RoadNormal.cs" />
     <Compile Include="Assets\Scripts\Road\RoadPool.cs" />
+    <Compile Include="Assets\Scripts\Road\Stairs.cs" />
     <Compile Include="Assets\Scripts\Theme\WaterPool.cs" />
     <Compile Include="Assets\ThirdParty\Demigiant\DOTweenPro\DOTweenAnimation.cs" />
   </ItemGroup>

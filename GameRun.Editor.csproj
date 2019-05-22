@@ -322,6 +322,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Editor\CreatMapEditor.cs" />
     <Compile Include="Assets\LowPolyWaterv2\Editor\LPWInspector.cs" />
     <Compile Include="Assets\LowPolyWaterv2\Editor\LPWShaderGUI.cs" />
     <Compile Include="Assets\ThirdParty\Demigiant\DOTweenPro\Editor\DOTweenAnimationInspector.cs" />

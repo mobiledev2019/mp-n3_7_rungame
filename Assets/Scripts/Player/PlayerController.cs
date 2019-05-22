@@ -81,6 +81,7 @@ public class PlayerController : MonoBehaviour {
             }
 
             if (orther.gameObject.CompareTag("Boom")) {
+                Debug.Log(" collider  =   " + orther.name);
                 Players[Players.Count - 1].Death();
                 RemovePlayerByIndex(Players.Count - 1);
                 orther.gameObject.SetActive(false);
@@ -100,12 +101,7 @@ public class PlayerController : MonoBehaviour {
         for (int i = 0; i < Players.Count; i++) {
             Players[i].transform.position += Vector3.up * dis;
         }
-    }
-    //
-    //    private void OnCollisionEnter(Collision orther)
-    //    {
-    // 
-    //    }
+    } 
 
     private void SetPositionLevelUp() {
         UpLevelPlayer();
