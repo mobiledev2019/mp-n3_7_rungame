@@ -1,6 +1,9 @@
-﻿using DG.DemiEditor;
+﻿using System;
+using DG.DemiEditor;
 using UnityEngine;
-using UnityEditor; 
+using UnityEditor;
+using UnityEditor.UI;
+using UnityEngine.Networking;
 
 
 public class CreatMapEditor : EditorWindow {
@@ -8,116 +11,127 @@ public class CreatMapEditor : EditorWindow {
     bool groupEnabled;
     bool myBool = true;
     float myFloat = 1.23f;
-    public int[,] Map = new int[100,7];
+    public int[,] Map = new int[100, 7];
     private Vector2 scrollViewVector;
     private GUIStyle style;
     private static CreatMapEditor window;
+    public Texture[,] tex = new Texture[100, 7];
 
     [MenuItem("ToolMap/My Window")]
     public static void ShowWindow() {
-        window = (CreatMapEditor)EditorWindow.GetWindow(typeof(CreatMapEditor)); 
+        window = (CreatMapEditor)EditorWindow.GetWindow(typeof(CreatMapEditor));
         window.Show();
     }
+
+    private int row = 0;
+
+    private string stringToEdit = "";
 
     void OnGUI() {
         GUI.changed = false;
 
-        GUILayout.Space(20);
+        Rect rect1 = EditorGUILayout.BeginHorizontal();
+         
+        EditorGUI.LabelField(new Rect(0, 20, 50, 20), "Level : ");
+
+        stringToEdit = EditorGUI.TextArea(new Rect(50, 20, 50, 20), stringToEdit);
+
+        if (GUILayout.Button("Creat Row")) {
+            row++;
+            for (int i = 0; i < 7; i++)
+            {
+                Map[row, i] = 1;
+            }
+        }
+        if (GUILayout.Button("Load Map"))
+        {
+            GetMap(int.Parse(stringToEdit));
+        }
+        if (GUILayout.Button("Save Map")) {
+            UpdateMap(int.Parse(stringToEdit)); 
+        }
+        if (GUILayout.Button("Creat Map")) {
+            CreatMap(int.Parse(stringToEdit));
+        }
+         
+        EditorGUILayout.EndHorizontal();
+
+        GUILayout.Space(40);
         GUILayout.BeginHorizontal();
         GUILayout.Space(30);
-//        int oldSelected = selectedTab;
-//        selectedTab = GUILayout.Toolbar(selectedTab, toolbarStrings, new GUILayoutOption[] { GUILayout.Width(350) });
-        GUILayout.EndHorizontal();
+        GUILayout.EndHorizontal(); 
 
-        //scrollViewVector = GUI.BeginScrollView(new Rect(25, 45, position.width - 30, position.height), scrollViewVector, new Rect(0, 0, 400, 4200));
+        
         Rect rect = EditorGUILayout.BeginHorizontal();
         scrollViewVector = GUILayout.BeginScrollView(scrollViewVector);
-        GUILayout.Space(-30);
-        for (int i = 0; i < 10; i++)
+        GUILayout.Space(30);
+
+
+        for (int i = 0; i < row; i++) {
+            Rect rect2 = EditorGUILayout.BeginHorizontal();
+            for (int j = 0; j < 7; j++) {
+                if (Map[i, j] == 0) { 
+                    tex[i, j] = (Texture)AssetDatabase.LoadAssetAtPath("Assets/Textures/Square.png", typeof(Texture)); 
+
+                } else {
+                    tex[i, j] = null;
+                }
+
+                if (GUILayout.Button(tex[i, j], GUILayout.Width(20), GUILayout.Height(20))) {
+
+                    if (Map[i, j] > 0) {
+                        Map[i, j] = 0;
+                    } else {
+                        Map[i, j] = 1;
+                    }
+                }
+            }
+             
+            EditorGUILayout.EndHorizontal();
+
+        }
+        GUILayout.EndScrollView();
+        EditorGUILayout.EndHorizontal();  
+    }
+
+    private void CreatMap(int level)
+    {
+        MapData m = new MapData();
+        AssetDatabase.CreateAsset(m, "Assets/Resources/MapData/Map_" + level + ".asset");
+    }
+
+    private MapData GetMap(int level)
+    {
+        MapData m =(MapData) AssetDatabase.LoadAssetAtPath("Assets/Resources/MapData/Map_" + level + ".asset", typeof(MapData));
+        row = m.lenghtMap;
+        int[,] maptemp = m.GetMap();
+        for (int i = 0; i < row; i++)
         {
             for (int j = 0; j < 7; j++)
             {
-                Debug.Log("Button click...");
-
-                GUILayout.Button("Test level", new GUILayoutOption[] {GUILayout.Width(150)});
-//                if (GUI.Button(new Rect(new Vector2(j * 30 + 100, i * 30 + 100), Vector2.one * 30),
-//                    Map[i, j].ToString()))
-//                {
-//                    Map[i, j]++;
-//
-//                }
+                Map[i, j] = maptemp[i, j];
             }
         }
-        //
-            //        if (selectedTab == 0) {
-            //
-            //
-            //            //GUILayout.Space(10);
-            //            DisplayMenu();
-            //            DisplayLevelData();
-            //            //GUILayout.Space(10);
-            //            //GUILayout.Space(10);
-            //            GUIStars();
-            //            //GUILayout.Space(10);
-            //
-            //        } else if (selectedTab == 1) {
-            //            //GUISettings();
-            //            DisplayMenuBoss();
-            //            DisplayDataBoss();
-            //
-            //        } else if (selectedTab == 2) {
-            //
-            //        } else if (selectedTab == 3) {
-            //
-            //        } else if (selectedTab == 4) {
-            //
-            //        }
-            //
-            //        if (GUI.changed) {
-            //            if (!EditorApplication.isPlaying)
-            //                EditorSceneManager.MarkAllScenesDirty();
-            //            //			EditorUtility.SetDirty (ItemsEditor.Instance);
-            //        }
-
-
-            GUILayout.EndScrollView();
-        EditorGUILayout.EndHorizontal();
+//        Map = m.GetMap();
+        if(m.GetMap() == null) Debug.Log("null");
+   
+        return m;
     }
 
+    private void UpdateMap(int level)
+    {
+        MapData m = (MapData)AssetDatabase.LoadAssetAtPath("Assets/Resources/MapData/Map_" + level + ".asset", typeof(MapData));
 
-    //    void OnGUI() { 
-    //
-    //        GUILayout.Label("CreatMap", EditorStyles.boldLabel);
-    //         
-    //        
-    ////        pos =  GUILayout.BeginScrollView(
-    ////            pos, GUILayout.Width(100), GUILayout.Height(500));
-    ////        
-    //        style = new GUIStyle(GUI.skin.button);
-    //        style.normal.textColor = Color.red; 
-    //        style.active.textColor = Color.green;
-    //
-    //        scrollViewVector = GUILayout.BeginScrollView(scrollViewVector);
-    //        style.normal.background = Texture2D.blackTexture;
-    //
-    //
-    //        //        GUI.Button(new Rect(10, 10, 70, 30), "A button");
-    ////        if (GUI.Button(new Rect(70, 10, 70, 30), "A button"))
-    ////        { 
-    ////            Debug.Log("Button click");
-    //            for (int i = 0; i < 10; i++)
-    //            {
-    //                for (int j = 0; j < 7; j++)
-    //                {
-    //                    Debug.Log("Button click...");
-    //                    if (GUI.Button(new Rect(new Vector2(j * 30 + 100, i * 30 + 100), Vector2.one * 30),Map[i, j].ToString()))
-    //                    {
-    //                        Map[i, j]++;
-    //
-    //                    }
-    //                }
-    //            }
-    //        //        }
-    //        GUILayout.EndScrollView(); 
-    //    }
+        int[,] mapp = new int[row, 7];
+        for (int i = 0; i < row; i++)
+        {
+            for (int j = 0; j < 7; j++)
+            {
+                mapp[i, j] = Map[i, j];
+            }
+        }
+
+        m.UpdateMap(mapp, row, 7);
+        EditorUtility.SetDirty(m);
+    }
 }

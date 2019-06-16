@@ -26,8 +26,7 @@ public class GameService : MonoBehaviour
     public int getDistanceUpLevelRoad()
     {
         return Random.Range(20, 30);
-
-//        return gameSetting.distanceUpLevel[Random.Range(0, gameSetting.distanceUpLevel.Count)];
+         
     }
 
     public void upLevelRoad()
@@ -38,5 +37,10 @@ public class GameService : MonoBehaviour
     public int getLevelRoad()
     {
         return LevelRoad;
+    }
+
+    public int getNumCollum()
+    {
+        return gameSetting.numberLand;
     }
 }

@@ -23,10 +23,13 @@ public class RoadPool : ObjectPoolInScene<Road> {
     private int Colum = 0;
     private int Row = 0;
 
+    private int[,] map;
+ 
     public override void Start() {
         base.Start();
         _numRoadInRow = GameService.Instance.getLandRoadNumber();
         SetUpLevelRoad();
+        map = MapService.Instance.getMapCur();
     }
 
     public void Update() {
@@ -48,10 +51,10 @@ public class RoadPool : ObjectPoolInScene<Road> {
         if (Row >= MapService.Instance.GetLenghtMap()) {
             Row = 0;
         }
-
-        for (int index = 0; index < _numRoadInRow; index++) { 
+          
+        for (int index = 0; index <= _numRoadInRow; index++) { 
             Colum = index;
-            if (MapService.Instance.getMapCur()[Row, Colum] == 0) {
+            if (map[Row, Colum] == 0) {
                 random = true;
             } else {
                 random = false;

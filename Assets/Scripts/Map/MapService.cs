@@ -6,50 +6,36 @@ public class MapService : MonoBehaviour
 {
 
     public static MapService Instance;
-	private int[,] map = new int[100,7];
+    private MapData curMap;
+	private int[,] map;
+    private int curLevel = 1;
 
     private void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
-        }
-        CreatMap();
+        } 
     }
 
+    private void initMap()
+    {
+        curMap = Resources.Load<MapData>("MapData/Map_" + curLevel);
+        map = curMap.GetMap(); 
+    }
     public int[,] getMapCur()
     {
+        if (map == null)
+        {
+            initMap();
+        }
         return map;
     }
 
     public int GetLenghtMap()
     {
-        return 10;
+        return curMap.lenghtMap;
     }
-
-    private void CreatMap()
-    {
-//        for (int i = 0; i < 10; i++)
-//        {
-//            for (int j = 0; j < 7; j++)
-//            {
-//                map[i, j] = 1;
-//            }
-//        }
-
-        map = new int[10, 7]
-        {
-            {1,1,1,1,1,1,1},
-            {1,1,1,1,1,1,1},
-            {1,1,1,1,1,1,1},
-            {1,1,1,1,1,1,1},
-            {1,0,0,0,0,1,1}, 
-            {1,1,0,0,0,1,1},
-            {1,1,0,0,1,1,1},
-            {1,1,1,0,1,1,1},
-            {1,1,1,1,1,1,1},
-            {1,1,1,1,1,1,1},
-        };
-    }
+     
     
 }

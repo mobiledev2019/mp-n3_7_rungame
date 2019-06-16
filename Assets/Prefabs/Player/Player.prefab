@@ -462,8 +462,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.8, y: 1, z: 0.8}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.8, y: 1, z: 0.67571783}
+  m_Center: {x: 0, y: 0, z: 0.06214106}
 --- !u!95 &95223055549554056
 Animator:
   serializedVersion: 3
@@ -524,6 +524,7 @@ MonoBehaviour:
     avatar: {fileID: 0}
     scriptSkill: 
   SkinChil: {fileID: 0}
+  positionAvatar: {x: 0, y: 0, z: 0}
 --- !u!137 &137057250971839146
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

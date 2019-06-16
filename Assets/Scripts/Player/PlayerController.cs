@@ -28,8 +28,11 @@ public class PlayerController : MonoBehaviour {
 
     // Update is called once per frame
     private void Update() {
-        Move();
-        TimeSpeedItem();
+        if (IsAlive == true)
+        {
+            Move();
+            TimeSpeedItem();
+        }
     }
 
     private void Move() {
