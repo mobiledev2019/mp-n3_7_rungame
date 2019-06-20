@@ -81,8 +81,8 @@ public class GameManager : MonoBehaviour {
 
     IEnumerator Example()
     {
-//        yield return new WaitUntil(() => LoginManager.instance.loadDone == true);
-        yield return null;
+        yield return new WaitUntil(() => LoginManager.instance.loadDone == true);
+        //yield return null;
         print(LoginManager.instance.listUser.Count);
 
         LoginManager.instance.Login();
@@ -139,7 +139,7 @@ public class GameManager : MonoBehaviour {
     {
         PlayerPrefs.SetInt(best, point);
 
-        LoginManager.instance.AddDataToFB(GetID().ToString(), GetUser(), point.ToString(),GetPass());
+        LoginManager.instance.AddDataToFB(GetID().ToString(), GetUser(), point.ToString(),GetPass(),GetRank().ToString());
     }
 
     public int GetBest()

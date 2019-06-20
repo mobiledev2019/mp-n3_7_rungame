@@ -23,18 +23,20 @@ public class LoginManager : MonoBehaviour
         public string account;
         public string pass;
         public string best;
+        public string rank;
 
         public User()
         {
 
         }
 
-        public User(string id,string account, string best,string pass)
+        public User(string id,string account, string best,string pass,string rank)
         {
             this.id = id;
             this.account = account;
             this.best = best;
             this.pass = pass;
+            this.rank = rank;
         }
     }
 
@@ -193,12 +195,12 @@ public class LoginManager : MonoBehaviour
 
     
 
-    public void AddDataToFB(string id, string account, string best, string pass) 
+    public void AddDataToFB(string id, string account, string best, string pass,string rank) 
     {
         FirebaseApp.DefaultInstance.SetEditorDatabaseUrl(DB);
         reference = FirebaseDatabase.DefaultInstance.RootReference;
 
-        User user = new User(id,account, best,pass);
+        User user = new User(id,account, best,pass,rank);
         string json = JsonUtility.ToJson(user);
 
         print(json);
@@ -225,7 +227,8 @@ public class LoginManager : MonoBehaviour
                 {
                     IDictionary dictUser = (IDictionary)user.Value;
                     print("zo");
-                    User temp = new User(dictUser["id"].ToString(), dictUser["account"].ToString(), dictUser["best"].ToString(),dictUser["pass"].ToString());
+                    User temp = new User(dictUser["id"].ToString(), dictUser["account"].ToString(), dictUser["best"].ToString(),
+                        dictUser["pass"].ToString(), dictUser["rank"].ToString());
                     listUser.Add(temp);
                 }
                 loadDone = true;
@@ -274,7 +277,7 @@ public class LoginManager : MonoBehaviour
 
                 int id = listUser.Count + 1;
 
-                AddDataToFB(id.ToString(), user, "0",pass);
+                AddDataToFB(id.ToString(), user, "0",pass,id.ToString());
 
                 GameManager.instance.SetUser(user);
                 GameManager.instance.SetID(id);
@@ -418,7 +421,7 @@ public class LoginManager : MonoBehaviour
         listLeaderBoard = listUser.OrderBy(user => int.Parse(user.best)).ToList();
 
         User local = new User(GameManager.instance.GetID().ToString(), GameManager.instance.GetUser(), 
-            GameManager.instance.GetBest().ToString(), GameManager.instance.GetPass());
+            GameManager.instance.GetBest().ToString(), GameManager.instance.GetPass(),GameManager.instance.GetRank().ToString());
 
         int rank = listLeaderBoard.IndexOf(local);
 
@@ -436,7 +439,7 @@ public class LoginManager : MonoBehaviour
         {
             if (user.Equals(listUser[i].account))
             {
-                player = new User(listUser[i].id, listUser[i].account, listUser[i].best, listUser[i].pass);
+                player = new User(listUser[i].id, listUser[i].account, listUser[i].best, listUser[i].pass,listUser[i].rank);
                 break;
             }
         }
