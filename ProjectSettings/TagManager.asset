@@ -13,6 +13,7 @@ TagManager:
   - Coins
   - ItemSpeed
   - Stairs
+  - target
   layers:
   - Default
   - TransparentFX

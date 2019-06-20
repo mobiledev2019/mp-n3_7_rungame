@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameRunTesss", "GameRunTesss.csproj", "{C64E9291-38D5-AC94-7480-84DFE8029382}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameRunTesss.Editor", "GameRunTesss.Editor.csproj", "{D003FFA4-AF93-B5B3-D176-1A8FDBF24D25}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C64E9291-38D5-AC94-7480-84DFE8029382}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C64E9291-38D5-AC94-7480-84DFE8029382}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C64E9291-38D5-AC94-7480-84DFE8029382}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C64E9291-38D5-AC94-7480-84DFE8029382}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D003FFA4-AF93-B5B3-D176-1A8FDBF24D25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D003FFA4-AF93-B5B3-D176-1A8FDBF24D25}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D003FFA4-AF93-B5B3-D176-1A8FDBF24D25}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D003FFA4-AF93-B5B3-D176-1A8FDBF24D25}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

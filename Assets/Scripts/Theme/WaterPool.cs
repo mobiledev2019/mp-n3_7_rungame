@@ -6,11 +6,17 @@ using UnityEngine;
 public class WaterPool : ObjectPoolInScene<LowPolyWaterScript> {
 
     public override void Start() {
+        InitTheme(ThemeServer.Instance.GetThemCur().Water);
     }
 
     void Update () {
         CheckPool();
 	}
+
+    public void InitTheme(WaterData water) {
+        prefabs.GetComponent<LowPolyWaterScript>().material.SetColor("_ShoreColor", water.DeepFoam);
+        prefabs.GetComponent<LowPolyWaterScript>().material.SetColor("_DeepColor", water.DeepWaterCollor); 
+    }
 
     public override void SpawnObject(LowPolyWaterScript last = null) {
         var prefabsTemp = prefabs.Spawn(transform);

@@ -9,13 +9,12 @@ public class TimeController : MonoBehaviour
     public static TimeController Instance;
 
     private int timeToScale = 0;
-	// Use this for initialization
+	
 	void Start () {
 	    if (Instance == null)
 	    {
 	        Instance = this;
-	    }	
-
+	    }
 	}
 
     private void Update()

@@ -109,7 +109,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4109382440270592
 Transform:
   m_ObjectHideFlags: 1
@@ -336,3 +336,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   road: {fileID: 1961512318663998}
   roadDie: {fileID: 1996783091125828}
+  roadTheme: {fileID: 23773309920742456}

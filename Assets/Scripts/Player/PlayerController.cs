@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour {
 
     [SerializeField] private float speed = 6;
 
+    [SerializeField] private PlayerChild childFrefabs;
+
     public static PlayerController Instance;
     private float sizePlayer = 1f;
     private int CurPosition;
@@ -16,16 +18,41 @@ public class PlayerController : MonoBehaviour {
     private int levelPlayer = 0;
     public bool IsAlive;
     private int timeItemSpeed = 0;
+    private Vector3 startPositon = Vector3.up*2;
 
     private void Awake() {
         if (Instance == null) {
             Instance = this;
         }
 
-        IsAlive = true;
-        CurPosition = 2;
+//        Init();
     }
 
+    private PlayerChild tempChils;
+    public void Init()
+    {
+        IsAlive = false;
+        CurPosition = 2;
+        transform.position = startPositon;
+        if (Players != null && Players.Count > 0)
+        {
+            for (int i = 0; i < Players.Count; i++)
+            {
+                Players[i].Recycle();
+            }
+        }
+
+        if (tempChils != null)
+        {
+            tempChils.Recycle();
+        } 
+        Players.Clear();
+        tempChils = childFrefabs.Spawn(this.transform, Vector3.zero);
+        Players.Add(tempChils);
+        tempChils.setUsed(); 
+        speed = 6;
+    }
+     
     // Update is called once per frame
     private void Update() {
         if (IsAlive == true)
@@ -70,6 +97,10 @@ public class PlayerController : MonoBehaviour {
     private void OnTriggerEnter(Collider orther) {
         if (IsAlive)
         {
+            if (GameController.Instance.winGameLevel)
+            {
+                return;
+            }
             if (orther.gameObject.CompareTag("playerChild")) {
                 PlayerChild _player = orther.GetComponent<PlayerChild>();
                 if (_player.NotUse()) {
@@ -96,6 +127,13 @@ public class PlayerController : MonoBehaviour {
                 speed = 5;
                 timeItemSpeed = 20;
             }
+
+            if (orther.gameObject.CompareTag("target"))
+            {
+                speed = 0; 
+                GameController.Instance.WinGameLevel();
+            }
+            
         }
        
     }
@@ -119,7 +157,6 @@ public class PlayerController : MonoBehaviour {
             Players.RemoveAt(Players.IndexOf(playerDie));
             CheckDeath();
         }
-
     }
 
     private void RemovePlayerByIndex(int index) {
@@ -137,7 +174,9 @@ public class PlayerController : MonoBehaviour {
         {
             Debug.Log("Dieeeeeeeeeeee");
             IsAlive = false;
-            Time.timeScale = 0;
+            speed = 0;
+            GameController.Instance.GameOver();
+//            Time.timeScale = 0;
         }
     }
 
@@ -145,20 +184,21 @@ public class PlayerController : MonoBehaviour {
         levelPlayer++;
     }
 
-    public void MoveLeftRight(float dir = 1) {
-        if (dir > 0) {
-            if (CurPosition >= 5) {
-                return;
-            }
+    public void MoveLeftRight(float dir = 1)
+    {
 
+        if (!IsAlive || GameController.Instance.stateGame != GameController.StateGame.Playing) return;
+        if (dir > 0) {
+            if (CurPosition >= GameService.Instance.getLandRoadNumber() -1) {
+                return;
+            } 
             CurPosition++;
         }
 
         if (dir < 0) {
             if (CurPosition <= 0) {
                 return;
-            }
-
+            } 
             CurPosition--;
         }
 

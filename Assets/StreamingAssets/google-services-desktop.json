@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "461103497215",
+    "firebase_url": "https://impossibleroad.firebaseio.com",
+    "project_id": "impossibleroad",
+    "storage_bucket": "impossibleroad.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:461103497215:android:0ccfe52b157dc99a",
+        "android_client_info": {
+          "package_name": "ad.ad.hades"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "461103497215-3vfpco7c3e87q8jkkc0u5761t6liu1eo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5PggdsRDWYQjVK7hmyiqauUgpPUHFUEM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "461103497215-3vfpco7c3e87q8jkkc0u5761t6liu1eo.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

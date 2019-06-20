@@ -328,10 +328,13 @@
     <Compile Include="Assets\ThirdParty\Demigiant\DOTweenPro\Editor\DOTweenAnimationInspector.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\BOXOPHOBIC\Skybox Cubemap Extended\Shaders\Skybox Cubemap Extended.shader" />
     <None Include="Assets\KUBIKOS - Cube Mini Animals\Animals1_Shaders\Unlit-DoubleSided.shader" />
     <None Include="Assets\KUBIKOS - World\Shaders\Cloud_Shader.shader" />
     <None Include="Assets\KUBIKOS - World\Shaders\CustomStandardSpecular.shader" />
+    <None Include="Assets\KUBIKOS - World\Shaders\Magma_Shader.shader" />
     <None Include="Assets\KUBIKOS - World\Shaders\Surface_Shader.shader" />
+    <None Include="Assets\KUBIKOS - World\Shaders\Water_Shader.shader" />
     <None Include="Assets\LowPolyWaterv2\Shaders\LPWCompatibility.cginc" />
     <None Include="Assets\LowPolyWaterv2\Shaders\LPWLighting.cginc" />
     <None Include="Assets\LowPolyWaterv2\Shaders\LPWLite.cginc" />

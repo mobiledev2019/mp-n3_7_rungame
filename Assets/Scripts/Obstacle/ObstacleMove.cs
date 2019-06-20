@@ -22,6 +22,7 @@ public class ObstacleMove : ObstacleBase
 
     private void Update()
     {
+        if (GameController.Instance.stateGame != GameController.StateGame.Playing) return;
         if (IsMove)
         {
             Move();

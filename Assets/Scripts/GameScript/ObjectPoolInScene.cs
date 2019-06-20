@@ -10,30 +10,33 @@ public class ObjectPoolInScene<T> : MonoBehaviour where T : MonoBehaviour {
     public Transform CameraTransform;
     public float LimitFirst;
     public float LimitLast;
-
-//    public static T Instance {
-//        get {
-//            if (instance == null) {
-//                instance = GameObject.FindObjectOfType<T>();
-//                if (instance == null) instance = new GameObject("Singleton", typeof(T)).GetComponent<T>();
-//            }
-//
-//            return instance;
-//        }
-//        set { instance = value; }
-//    }
-
+    [SerializeField] private bool setStart;
+ 
     public virtual void Start() {
-        Init();
+//        Init();
     }
 
-    private void Init() {
-        ListInGame = new List<T>();
-        ListInGame.Add(prefabs.Spawn(transform));
+    public virtual void Init() {
+        if (ListInGame == null)
+        {
+            ListInGame = new List<T>();
+        }
+
+        for (int i = 0; i < ListInGame.Count; i++)
+        {
+            ListInGame[i].Recycle();
+        }
+        ListInGame.Clear();
+        if (setStart)
+        {
+            ListInGame.Add(prefabs.Spawn(transform));
+        } 
     }
+
 
     public virtual void CheckPool()
     {
+        if (ListInGame.Count == 0) return;
         var last = ListInGame[ListInGame.Count - 1];
         if (IsInCamera(last)) {
             SpawnObject(last);
@@ -59,7 +62,7 @@ public class ObjectPoolInScene<T> : MonoBehaviour where T : MonoBehaviour {
     }
 
     public  bool IsOutOfCamera(T first) {
-        if (first.transform.position.z < CameraTransform.position.z + LimitFirst) {
+        if (first.transform.position.z < CameraTransform.position.z + LimitFirst || first.transform.position.y < -10) {
             return true;
         }
 

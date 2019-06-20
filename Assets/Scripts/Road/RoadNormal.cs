@@ -8,13 +8,13 @@ public class RoadNormal : Road
     private bool IsHide = false;
 
     [SerializeField] private GameObject road;
-
     [SerializeField] private GameObject roadDie;
-	// Use this for initialization
-	void Start ()
-	{
-//	    road = transform.GetChild(1).gameObject;
-	}
+    [SerializeField] private MeshRenderer roadTheme;
+     
+    public void Init()
+    { 
+        roadTheme.material = ThemeServer.Instance.GetThemCur().materialRoad; 
+    }
 
     public override void Hide()
     {
@@ -25,6 +25,7 @@ public class RoadNormal : Road
 
     public override void Show()
     {
+        Init();
         IsHide = true;
         road.SetActive(true);
         roadDie.SetActive(false);

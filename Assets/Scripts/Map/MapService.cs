@@ -18,7 +18,7 @@ public class MapService : MonoBehaviour
         } 
     }
 
-    private void initMap()
+    public void initMap()
     {
         curMap = Resources.Load<MapData>("MapData/Map_" + curLevel);
         map = curMap.GetMap(); 
@@ -36,6 +36,9 @@ public class MapService : MonoBehaviour
     {
         return curMap.lenghtMap;
     }
-     
-    
+
+    public void SetCurMap(int level)
+    {
+        curLevel = level;
+    }
 }

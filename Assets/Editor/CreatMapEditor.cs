@@ -36,12 +36,12 @@ public class CreatMapEditor : EditorWindow {
 
         stringToEdit = EditorGUI.TextArea(new Rect(50, 20, 50, 20), stringToEdit);
 
-        if (GUILayout.Button("Creat Row")) {
-            row++;
+        if (GUILayout.Button("Creat Row")) { 
             for (int i = 0; i < 7; i++)
             {
                 Map[row, i] = 1;
             }
+            row++;
         }
         if (GUILayout.Button("Load Map"))
         {

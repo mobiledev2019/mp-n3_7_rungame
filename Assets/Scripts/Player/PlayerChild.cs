@@ -8,13 +8,17 @@ public class PlayerChild : MonoBehaviour {
 
     [SerializeField] private statusPlayer status;
 
+    public GameObject die;
+
     private void OnTriggerEnter(Collider other) {
-        if (IsUsed()) {
+        if (IsUsed() && PlayerController.Instance.IsAlive) {
             if (other.gameObject.CompareTag("roadDie")) {
                 transform.DOMove(other.transform.position, 1);
                 transform.SetParent(null);
                 other.gameObject.SetActive(false);
                 PlayerController.Instance.RemovePlayer(this);
+                die = other.gameObject;
+                Debug.Log(" road die : " + other.name);
                 setDie();
             }
         }

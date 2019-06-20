@@ -253,6 +253,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\KUBIKOS - Cube Mini Animals\Animals1_!Demo\Animals1_Scripts\AssetsObject.cs" />
+    <Compile Include="Assets\KUBIKOS - Cube Mini Animals\Animals1_!Demo\Animals1_Scripts\MathFx.cs" />
+    <Compile Include="Assets\KUBIKOS - Cube Mini Animals\Animals1_!Demo\Animals1_Scripts\PreviewManager.cs" />
     <Compile Include="Assets\LowPolyWaterv2\Demos\Scripts\DemoFreeFlyCamera.cs" />
     <Compile Include="Assets\LowPolyWaterv2\Scripts\LowPolyWaterScript.cs" />
     <Compile Include="Assets\LowPolyWaterv2\Scripts\src\LPWDepthEffect.cs" />
@@ -265,6 +268,7 @@
     <Compile Include="Assets\Scripts\Coins\Coins.cs" />
     <Compile Include="Assets\Scripts\Coins\CoinsPool.cs" />
     <Compile Include="Assets\Scripts\GameScript\CameraController.cs" />
+    <Compile Include="Assets\Scripts\GameScript\GameController.cs" />
     <Compile Include="Assets\Scripts\GameScript\GameService.cs" />
     <Compile Include="Assets\Scripts\GameScript\GameSetting.cs" />
     <Compile Include="Assets\Scripts\GameScript\MoveController.cs" />
@@ -276,6 +280,9 @@
     <Compile Include="Assets\Scripts\Item\ItemData.cs" />
     <Compile Include="Assets\Scripts\Item\ItemPool.cs" />
     <Compile Include="Assets\Scripts\Item\ItemService.cs" />
+    <Compile Include="Assets\Scripts\Level\levelButton.cs" />
+    <Compile Include="Assets\Scripts\Level\levelManager.cs" />
+    <Compile Include="Assets\Scripts\Map\MapData.cs" />
     <Compile Include="Assets\Scripts\Map\MapService.cs" />
     <Compile Include="Assets\Scripts\Obstacle\ObstacleBase.cs" />
     <Compile Include="Assets\Scripts\Obstacle\ObstacleData.cs" />
@@ -295,14 +302,34 @@
     <Compile Include="Assets\Scripts\Road\RoadNormal.cs" />
     <Compile Include="Assets\Scripts\Road\RoadPool.cs" />
     <Compile Include="Assets\Scripts\Road\Stairs.cs" />
+    <Compile Include="Assets\Scripts\Theme\Deco.cs" />
+    <Compile Include="Assets\Scripts\Theme\DecoData.cs" />
+    <Compile Include="Assets\Scripts\Theme\DecoPool.cs" />
+    <Compile Include="Assets\Scripts\Theme\ThemeController.cs" />
+    <Compile Include="Assets\Scripts\Theme\ThemeData.cs" />
+    <Compile Include="Assets\Scripts\Theme\ThemeServer.cs" />
+    <Compile Include="Assets\Scripts\Theme\ThemeStore.cs" />
     <Compile Include="Assets\Scripts\Theme\WaterPool.cs" />
+    <Compile Include="Assets\Scripts\UIScript\GameManager.cs" />
+    <Compile Include="Assets\Scripts\UIScript\GameOverPanel.cs" />
+    <Compile Include="Assets\Scripts\UIScript\MenuController.cs" />
+    <Compile Include="Assets\Scripts\UIScript\PageBase.cs" />
+    <Compile Include="Assets\Scripts\UIScript\PanelCountdown.cs" />
+    <Compile Include="Assets\Scripts\UIScript\PanelInGame.cs" />
+    <Compile Include="Assets\Scripts\UIScript\PanelPause.cs" />
+    <Compile Include="Assets\Scripts\UIScript\StorePanel.cs" />
+    <Compile Include="Assets\Scripts\UIScript\UIController.cs" />
+    <Compile Include="Assets\Scripts\UIScript\WinPanel.cs" />
     <Compile Include="Assets\ThirdParty\Demigiant\DOTweenPro\DOTweenAnimation.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\BOXOPHOBIC\Skybox Cubemap Extended\Shaders\Skybox Cubemap Extended.shader" />
     <None Include="Assets\KUBIKOS - Cube Mini Animals\Animals1_Shaders\Unlit-DoubleSided.shader" />
     <None Include="Assets\KUBIKOS - World\Shaders\Cloud_Shader.shader" />
     <None Include="Assets\KUBIKOS - World\Shaders\CustomStandardSpecular.shader" />
+    <None Include="Assets\KUBIKOS - World\Shaders\Magma_Shader.shader" />
     <None Include="Assets\KUBIKOS - World\Shaders\Surface_Shader.shader" />
+    <None Include="Assets\KUBIKOS - World\Shaders\Water_Shader.shader" />
     <None Include="Assets\LowPolyWaterv2\Shaders\LPWCompatibility.cginc" />
     <None Include="Assets\LowPolyWaterv2\Shaders\LPWLighting.cginc" />
     <None Include="Assets\LowPolyWaterv2\Shaders\LPWLite.cginc" />
