@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour {
         MakeInstance();
         FirstTime();
         //123456
-        PlayerPrefs.DeleteAll();
+//        PlayerPrefs.DeleteAll();
     }
 
     private void Start()

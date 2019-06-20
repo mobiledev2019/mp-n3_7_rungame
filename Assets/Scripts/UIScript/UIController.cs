@@ -11,6 +11,7 @@ public class UIController : MonoBehaviour
     public GameOverPanel gameoverPopup;
     public PanelCountdown countdownPopup;
     public PanelInGame ingamePopup;
+    public StorePanel storePopup;
 
     public static UIController Instance;
 

@@ -61,6 +61,13 @@ public class MenuController : PageBase {
         btnSetting.onClick.AddListener(OnClickSetting);
         btnLevel.onClick.AddListener(OnClickLevel);
         btnBackLogin.onClick.AddListener(OnClickBackLogin);
+        textCoin.text = GameManager.instance.GetCoin().ToString();
+    }
+
+    public override void Show()
+    {
+        base.Show();
+        textCoin.text = GameManager.instance.GetCoin().ToString();
     }
 
     void OnClickPlayClassic() {
@@ -82,7 +89,8 @@ public class MenuController : PageBase {
 
     void OnClickShop()
     {
-
+        UIController.Instance.storePopup.Show();
+        UIController.Instance.menuPopup.Hide();
     }
 
     void OnClickSetting()

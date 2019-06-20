@@ -8,20 +8,23 @@ public class ThemeStore : MonoBehaviour
     [SerializeField] private GameObject coins;
     [SerializeField] private Text description;
     [SerializeField] private Button buttonBuy;
+    [SerializeField] private string des;
     
     /// <summary>
-    /// true ==> block
+    /// 1 ==> block
     /// </summary>
-    private bool isLock; 
+    private int isLock; 
     private int indexTheme;
     private int price;
 
-    public void Init(bool isLock, int indexTheme , int price)
+    public void Init(int isLock, packTheme pack)
     {
-        this.price = price;
-        this.indexTheme = indexTheme;
+        price = pack.price;
+        indexTheme = pack.index;
+        des = pack.des;
+        description.text =  des;
         this.isLock = isLock;
-        if (isLock)
+        if (isLock == 0)
         {
             coins.SetActive(true);
             description.gameObject.SetActive(false);
@@ -35,9 +38,15 @@ public class ThemeStore : MonoBehaviour
 
     public void OnButtonBuy()
     {
-        if (isLock == true)
+        if (isLock == 0)
         {
-//            if(GameManager.instance.GetCoin())
+            if (GameManager.instance.GetCoin() > price)
+            {
+                isLock = 1;
+                coins.SetActive(false);
+                description.gameObject.SetActive(true);
+                ThemeServer.Instance.SetCurTheme(indexTheme);
+            }
         }
         else
         {
